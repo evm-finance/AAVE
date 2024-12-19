@@ -1,0 +1,49 @@
+query SupportedChainsGQL {
+  chains {
+    chainId,
+    name,
+    geckoId,
+    symbol,
+    label,
+    logoUrl,
+    isTestNet,
+    rpcUrl,
+    blockExplorerUrl,
+  }
+}
+
+
+query GasGQL {
+  gas{
+    symbol,
+    blockExplorer
+    name,
+    gas
+    {
+      lastBlock,
+      safeGasPrice,
+      proposeGasPrice,
+      fastGasPrice,
+      suggestBaseFee
+    }
+  }
+}
+
+query DeFiStats{
+  globalStats {
+    defiMarketCap,
+    ethMarketCap,
+    defiToEthRatio,
+    tradingVolume24h,
+    defiDominance,
+    topCoinName,
+    topCoinDefiDominance
+  }
+}
+
+
+
+query RecentPricesGQL{
+  recentPrices
+}
+
