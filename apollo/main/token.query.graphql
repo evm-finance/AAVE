@@ -1,0 +1,71 @@
+query TokenQueryGQL($qcKey: String!, $walletAddress: String!, $interval: TimeInterval!, $contractAddress: String!, $chainId:Int! , $decimals: Int!){
+  token(qcKey: $qcKey, walletAddress: $walletAddress , interval: $interval, contractAddress: $contractAddress, chainId: $chainId, decimals: $decimals){
+    ID
+    walletAddress
+    interval
+    qcKey
+
+    aaveSymbol
+    isAaveToken
+    isQCToken
+
+    coinGeckoID
+    symbolName
+    rank
+    chainId
+    tokenInterval {
+      high
+      low
+      interval
+      unixTime
+    }
+    price {
+      qcKey
+      symbolName
+      priceUsd
+      priceEth
+    }
+
+    price24h
+
+    marketcap
+    volume24h
+    circulatingSupply
+    support1h
+    resistance1h
+    safeScore
+
+    websiteUrl
+    bitbucketRepos
+    githubRepos
+    explorerUrls
+
+    telegramChannelId
+    twitterUrl
+    subredditUrl
+    facebookUrl
+
+    coinDescription
+
+    news{
+      id
+      title
+      url
+      publishedAt
+      currencies {
+        code
+        title
+        slug
+        url
+      }}
+
+    balances{chainId, items{balance}}
+  }
+}
+
+query DailyChartGQL($coinGeckoID:String!){
+  dailyChart(coinGeckoID: $coinGeckoID){
+    date
+    priceUsd
+  }
+}
